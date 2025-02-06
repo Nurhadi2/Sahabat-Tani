@@ -1,0 +1,9 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule ^([^/.]+)/?$ index.php?target=$1 [L]
+
+RewriteRule ^([^/.]+)/message/([^/.]+)/?$ index.php?target=$1&msg=$2 [L]
+RewriteRule ^([^/.]+)/delete/([^/.]+)/?$ index.php?target=$1&id=$2 [L]
+RewriteRule ^([^/.]+)/([^/.]+)/?$ index.php?target=$1&id=$2 [L]
+
+
