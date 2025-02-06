@@ -109,69 +109,69 @@ $totalPage = ceil($totalData / $limit);
         </div>
         <div class="container my-5">
         <form action="" method="GET">
-        <div class="input-group mb-3 ms-auto mb-5" style="width: 26rem;">
-            <input type="search" class="form-control" placeholder="Cari Berita" name="kata_kunci">
-            <button class="btn btn-outline-success" type="submit">Cari Berita</button>
-        </div>
-    </form>
+          <div class="input-group mb-3 ms-auto mb-5" style="width: 26rem;">
+              <input type="search" class="form-control" placeholder="Cari Berita" name="kata_kunci">
+              <button class="btn btn-outline-success" type="submit">Cari Berita</button>
+          </div>
+      </form>
 
-    <?php if ($result->num_rows > 0): ?>
-        <div class="row">
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="<?= $base_url ?>/admin/images/<?php echo $row['gambar_berita']; ?>" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="<?= $base_url ?>/menu_navigasi/detail_berita.php?id=<?= $row['id'] ?>">
-                                    <b><?php echo htmlspecialchars($row['judul_berita']); ?></b>
-                                </a>
-                            </h5>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <small class="text-muted d-block mb-2">
-                                <i class="bi bi-person"></i> <?= $row['nama_user'] ?>
-                            </small>
-                            <small class="text-muted">
-                                <i class="bi bi-calendar"></i> <?php echo date('d F Y', strtotime($row['tanggal_input'])); ?>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            <?php endwhile; ?>
-        </div>
+      <?php if ($result->num_rows > 0): ?>
+          <div class="row justify-content-start">
+              <?php while ($row = $result->fetch_assoc()): ?>
+                  <div class="col-md-4 mb-4">
+                      <div class="card h-100">
+                          <img src="<?= $base_url ?>/admin/images/<?php echo $row['gambar_berita']; ?>" class="card-img-top">
+                          <div class="card-body">
+                              <h5 class="card-title">
+                                  <a href="<?= $base_url ?>/menu_navigasi/detail_berita.php?id=<?= $row['id'] ?>">
+                                      <b><?php echo htmlspecialchars($row['judul_berita']); ?></b>
+                                  </a>
+                              </h5>
+                          </div>
+                          <div class="card-footer bg-white">
+                              <small class="text-muted d-block mb-2">
+                                  <i class="bi bi-person"></i> <?= $row['nama_user'] ?>
+                              </small>
+                              <small class="text-muted">
+                                  <i class="bi bi-calendar"></i> <?php echo date('d F Y', strtotime($row['tanggal_input'])); ?>
+                              </small>
+                          </div>
+                      </div>
+                  </div>
+              <?php endwhile; ?>
+          </div>
 
-        <!-- Pagination -->
-        <nav>
-            <ul class="pagination justify-content-center">
-                <?php if ($page > 1): ?>
-                    <li class="page-item">
-                        <a class="page-link" href="?page=<?= $page - 1; ?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                <?php endif; ?>
+          <!-- Pagination -->
+          <nav>
+              <ul class="pagination justify-content-center">
+                  <?php if ($page > 1): ?>
+                      <li class="page-item">
+                          <a class="page-link" href="?page=<?= $page - 1; ?>" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                          </a>
+                      </li>
+                  <?php endif; ?>
 
-                <?php for ($i = 1; $i <= $totalPage; $i++): ?>
-                    <li class="page-item <?= ($page == $i) ? 'active' : ''; ?>">
-                        <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
-                    </li>
-                <?php endfor; ?>
+                  <?php for ($i = 1; $i <= $totalPage; $i++): ?>
+                      <li class="page-item <?= ($page == $i) ? 'active' : ''; ?>">
+                          <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
+                      </li>
+                  <?php endfor; ?>
 
-                <?php if ($page < $totalPage): ?>
-                    <li class="page-item">
-                        <a class="page-link" href="?page=<?= $page + 1; ?>" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </nav>
+                  <?php if ($page < $totalPage): ?>
+                      <li class="page-item">
+                          <a class="page-link" href="?page=<?= $page + 1; ?>" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                          </a>
+                      </li>
+                  <?php endif; ?>
+              </ul>
+          </nav>
 
-    <?php else: ?>
-        <p class="text-center">Tidak ada artikel tersedia saat ini.</p>
-    <?php endif; ?>
-    </div>
+      <?php else: ?>
+          <p class="text-center">Tidak ada artikel tersedia saat ini.</p>
+      <?php endif; ?>
+      </div>
 
 <!-- buah -->
 
