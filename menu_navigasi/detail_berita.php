@@ -5,7 +5,7 @@ $id_berita = $_GET['id'];
 $sql    = "SELECT * from tb_berita WHERE id = $id_berita";
 $result = mysqli_query($connect,$sql);
 
-$queryArtikelTerbaru = "SELECT * FROM tb_berita LIMIT 4";
+$queryArtikelTerbaru = "SELECT * FROM tb_berita ORDER BY tanggal_input DESC LIMIT 4 ";
 $resultQueryArtikelTerbaru = mysqli_query($connect,$queryArtikelTerbaru);
 
 ?>
